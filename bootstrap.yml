@@ -1,0 +1,35 @@
+---
+
+- name: Prepare VM
+  hosts: linux
+  become: true
+  vars:
+    package_mode: upgrade
+    package_apt_cache_valid_time: 0
+    # reboot_forced: true
+    packages_extra:
+      rhel8:
+        - abrt
+        - policycoreutils
+        - selinux-policy-targeted
+      rhel9:
+        - policycoreutils
+        - selinux-policy-targeted
+    lvm:
+      vg: []
+      lv:
+        - { name: rootlv,     vg: rootvg, size: 4G, fstype: xfs, resize2fs: true, mp: /, mp_change: false }
+        - { name: usrlocallv, vg: rootvg, size: 1G, fstype: xfs, resize2fs: true, mp: /usr/local }
+        - { name: varlv,      vg: rootvg, size: 8G, fstype: xfs, resize2fs: true, mp: /var, mp_change: false }
+        - { name: varloglv,   vg: rootvg, size: 4G, fstype: xfs, resize2fs: true, mp: /var/log }
+        - { name: tmplv,      vg: rootvg, size: 4G, fstype: xfs, resize2fs: true, mp: /tmp, mp_change: false }
+        - { name: homelv,     vg: rootvg, size: 1G, fstype: xfs, resize2fs: true, mp: /home, mp_change: false }
+        - { name: optlv,      vg: rootvg, size: 4G, fstype: xfs, resize2fs: true, mp: /opt, mp_change: false }
+        - { name: swaplv,     vg: rootvg, size: 4G, fstype: swap }
+  pre_tasks:
+    - command: ls -l /opt
+      failed_when: false
+      register: xxx
+    - debug: var=xxx
+  roles:
+    - deitkrachten.lvm

@@ -1,0 +1,55 @@
+---
+
+- name: deitkrachten.ansiblenode
+  src: https://github.com/de-it-krachten/ansible-role-ansiblenode.git
+  version: main
+  scm: git
+
+- name: deitkrachten.epel
+  src: https://github.com/de-it-krachten/ansible-role-epel.git
+  version: main
+  scm: git
+
+- name: deitkrachten.facts
+  src: https://github.com/de-it-krachten/ansible-role-facts.git
+  # version: main
+  version: dev
+  scm: git
+
+- name: deitkrachten.firewall
+  src: https://github.com/de-it-krachten/ansible-role-firewall.git
+  version: main
+  scm: git
+
+- name: deitkrachten.firewalld
+  src: https://github.com/de-it-krachten/ansible-role-firewalld.git
+  # version: main
+  version: dev
+  scm: git
+
+- name: deitkrachten.lvm
+  src: https://github.com/de-it-krachten/ansible-role-lvm.git
+  # version: main
+  version: dev
+  scm: git
+
+- name: deitkrachten.python
+  src: https://github.com/de-it-krachten/ansible-role-python.git
+  #version: main
+  version: dev
+  scm: git
+
+- name: deitkrachten.reboot
+  src: https://github.com/de-it-krachten/ansible-role-reboot.git
+  version: main
+  scm: git
+
+- name: deitkrachten.ufw
+  src: https://github.com/de-it-krachten/ansible-role-ufw.git
+  version: main
+  scm: git
+
+- name: deitkrachten.users
+  src: https://github.com/de-it-krachten/ansible-role-users.git
+  version: main
+  scm: git

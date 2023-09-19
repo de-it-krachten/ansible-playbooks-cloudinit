@@ -16,4 +16,5 @@
         - { name: optlv,      vg: rootvg, size: 4G, fstype: xfs, resize2fs: true, mp: /opt, mp_change: false }
         - { name: swaplv,     vg: rootvg, size: 4G, fstype: swap }
   roles:
+    - deitkrachten.facts
     - deitkrachten.lvm
